@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import Loader from '@/components/Loader';
 import HomeContent from '@/components/HomeContent';
 
@@ -10,7 +10,7 @@ export default function Page() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Premium transition timing synchronized with Apple's visual language
+    // Apple-inspired entry timing
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2800);
@@ -19,7 +19,7 @@ export default function Page() {
   }, []);
 
   return (
-    <main className="relative w-full h-screen bg-black overflow-hidden">
+    <main className="relative w-full h-screen bg-black overflow-hidden selection:bg-white/10">
       <AnimatePresence mode="wait">
         {loading ? (
           <Loader key="loader" />

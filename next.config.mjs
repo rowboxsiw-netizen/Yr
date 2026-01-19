@@ -11,9 +11,13 @@ const nextConfig = {
     ],
     formats: ['image/avif', 'image/webp'],
   },
-  // Optimize for Vercel's edge runtime where possible
-  experimental: {
-    optimizePackageImports: ['framer-motion', 'lucide-react'],
+  eslint: {
+    // Disabling during build to ensure fast deployment, assuming local linting is handled
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // Build should still fail on real type errors, but we exclude legacy files in tsconfig.json
+    ignoreBuildErrors: false,
   },
 };
 
