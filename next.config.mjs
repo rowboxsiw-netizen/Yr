@@ -2,7 +2,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Ensure that external images (if any) are optimized
   images: {
     remotePatterns: [
       {
@@ -10,6 +9,11 @@ const nextConfig = {
         hostname: 'cdn.authorize.qzz.io',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+  },
+  // Optimize for Vercel's edge runtime where possible
+  experimental: {
+    optimizePackageImports: ['framer-motion', 'lucide-react'],
   },
 };
 

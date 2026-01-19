@@ -4,25 +4,27 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-// Using next/font/google avoids network requests to fonts.googleapis.com during build/runtime
+// next/font/google handles font optimization automatically without external network calls during build
 const inter = Inter({ 
   subsets: ["latin"],
   display: 'swap',
   variable: '--font-inter',
+  preload: true,
 });
 
 export const metadata: Metadata = {
   title: "Authorize | Identity Reimagined",
-  description: "Experience a new era of digital security and elegant authentication.",
-  appleWebApp: {
-    title: "Authorize",
-    statusBarStyle: "default",
-    capable: true,
+  description: "Elegance in digital security. Experience the standard of premium authentication.",
+  metadataBase: new URL('https://authorize.io'),
+  openGraph: {
+    title: "Authorize | Identity Reimagined",
+    description: "Premium Apple-style authentication experience.",
+    type: "website",
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "#000000",
   width: "device-width",
   initialScale: 1,
   maximumScale: 1,
@@ -36,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={inter.variable}>
-      <body className={`${inter.className} antialiased selection:bg-black/5`}>
+      <body className={`${inter.className} antialiased bg-black text-white selection:bg-white/10`}>
         {children}
       </body>
     </html>
